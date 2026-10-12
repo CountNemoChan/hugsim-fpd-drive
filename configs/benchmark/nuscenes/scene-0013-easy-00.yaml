@@ -1,0 +1,23 @@
+mode: easy_00
+plan_list:
+- - 0.0 # x pos is not used in unicycle planner
+  - 0.0 # y pos is not used in unicycle planner
+  - -0.3 # height
+  - 0.0 # start yaw is not used in unicycle planner
+  - 0.0 # start velo is not used in unicycle planner
+  - "2024_07_05_10_58_02" # 3DRealCar id
+  - UnicyclePlanner # planner type
+  - uc_id: 6e298f45ca39473887bfe3df4a71e34f # unicycle model id
+    speed: 0.6 # replay speed ratio, 1.0 is original speed in datasets
+load_HD_map: false
+start_euler:
+- 0.0
+- 0.0
+- 0.0
+start_ab:
+- 0.0
+- 0.0
+start_velo: 1
+start_steer: 0
+scene_name: scene-0013
+iteration: 30000

@@ -1,0 +1,22 @@
+# Simulator dependencies; install CUDA-compatible PyTorch first (see README).
+numpy==1.26.4
+pyarrow==17.0.0
+gymnasium==1.0.0
+omegaconf==2.3.0
+open3d==0.18.0
+opencv-python==4.10.0.84
+pandas==2.2.3
+Pillow>=10,<12
+PyYAML>=6,<7
+roma==1.5.1
+scipy==1.14.1
+Shapely==2.0.6
+matplotlib
+moviepy==2.2.1
+tqdm
+ninja
+jaxtyping
+plyfile
+pyquaternion
+git+https://github.com/hyzhou404/trajdata.git
+git+https://github.com/hyzhou404/nuscenes-devkit.git

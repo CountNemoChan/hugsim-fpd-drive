@@ -1,0 +1,67 @@
+# HUGSIM uses native Top1 scoring with 64 candidates, DDIM12, and seed 27.
+model:
+  type: fpdplanner
+  config:
+    cam_f0:
+    - 3
+    cam_l0:
+    - 3
+    cam_l1: []
+    cam_l2: []
+    cam_r0:
+    - 3
+    cam_r1: []
+    cam_r2: []
+    cam_b0:
+    - 3
+    lidar_pc: []
+    num_poses: 8
+    full_history_status: false
+    image_size:
+    - 1148
+    - 672
+    image_backbone:
+      model_name: timm/vit_small_patch14_reg4_dinov2.lvd142m
+      model_weights: ${oc.env:BACKBONE_WEIGHTS}
+      use_lora: true
+      lora_rank: 32
+      in_chans: 3
+      use_feature_pooling: false
+      focus_front_cam: false
+      compress_fc: false
+    tf_d_model: 256
+    tf_d_ffn: 1024
+    num_scene_tokens: 16
+    proposal_num: 64
+    one_token_per_traj: true
+    ref_num: 4
+    scorer_ref_num: 4
+    refiner_num_heads: 1
+    refiner_ls_values: 0.0
+joint:
+  refiner:
+    enable: true
+    type: ddim
+    architecture: refiner
+    candidate_mode: refined_only
+    num_layers: 12
+    num_heads: 8
+    hidden_dim: 1024
+    dropout: 0.0
+    num_inference_steps: 12
+    ego_status_dim: 8
+    ddim_num_train_timesteps: 1000
+    ddim_beta_schedule: scaled_linear
+    ddim_beta_start: 0.0001
+    ddim_beta_end: 0.02
+    eval_noise_seed: 27
+evaluation:
+  source: hugsim
+  selection_method: native_top1
+  ranking_weights:
+    noc: 1.0
+    dac: 1.0
+    ddc: 0.0
+    ttc: 5.0
+    ep: 5.0
+    comfort: 2.0

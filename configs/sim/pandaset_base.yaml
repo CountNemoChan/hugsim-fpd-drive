@@ -1,0 +1,4 @@
+realcar_path: ${oc.env:HUGSIM_DATA_ROOT}/3DRealCar
+model_base: ${oc.env:HUGSIM_DATA_ROOT}/scenes/pandaset
+FPD_Drive_path: ${oc.env:HUGSIM_ROOT}/ad_clients/FPD_Drive_e2e.sh
+output_dir: ${oc.env:HUGSIM_ROOT}/outputs/pandaset_
